@@ -7,44 +7,31 @@ The system follows the Harvard architecture with separate instruction and data m
 ## ISA
 The instructions follow the three address format,which means both the operands and the destination register need to be specified in the instruction. The instructions are 32-bit and follow the following modes:
 
-1. Register addressing mode
+### 1. Register addressing mode
 
->>| Bit field | Content |
->>|:---------:|:-------:|
->>| 31...27   | Opcode  |
->>| 26...22   | Destination register |
->>| 21...17   | Source register 1 |
->>| 16   | Addressing mode (0) |
->>| 15...11   | Source register 2 |
->>| 10...0   | Unused |
-<br>
+|Bit field:|31...27|26...22|21...17|16|15...11|10...0|
+|:--------:|:-----:|:-----:|:-----:|:-:|:----:|:----:|
+|Content:|Opcode|Dest. reg.|Src. reg. 1|0|Src. reg. 2|Unused
 
-2. Immediate addressing mode
 
->>| Bit field | Content |
->>|:---------:|:-------:|
->>| 31...27   | Opcode  |
->>| 26...22   | Destination register |
->>| 21...17   | Source register 1 |
->>| 16   | Addressing mode (1) |
->>| 15...0   | Immediate data |
-<br>
+### 2. Immediate addressing mode
 
-3. Jump and branch instructions
+|Bit field:|31...27|26...22|21...17|16|15...0|
+|:--------:|:-----:|:-----:|:-----:|:-:|:----:|
+|Content:|Opcode|Dest. reg.|Src. reg.|1|Imm. data|
 
->>| Bit field | Content |
->>|:---------:|:-------:|
->>| 31...27   | Opcode  |
->>| 26...17   | Unused  |
->>| 16   | Addressing mode (1) |
->>| 15...0   | Instruction address |
-<br>
+### 3. Jump and branch instructions
 
-4. Store and load instructions
->>| Bit field | Content |
->>|:---------:|:-------:|
->>| 31...27   | Opcode  |
->>| 26...16   | RAM address  |
->>| 15...11   | Store/Load register (for LD and STR)|
->>| 10...0   | Unused (for LD and STR)|
->>| 15...0 | Immediate data (for STI) |
+|Bit field:|31...27|26...17|16|15...0|
+|:--------:|:-----:|:-----:|:-:|:----:|
+|Content:|Opcode|Unused|1|Instr. address|
+
+### 4. Store and load instructions
+
+| Bit field: | 31...27 | 26...16 | 15...11 | 10...0 |
+|:---------:|:-------:|:-------:|:-------:|:-------:|
+| Content: | Opcode  | RAM address | Str/Ld reg. |Unused |
+
+| Bit field: | 31...27 | 26...16 | 15...0 |
+|:---------:|:-------:|:-------:|:-------:|
+| Content: | Opcode  | RAM address | Imm. data|
