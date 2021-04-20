@@ -40,7 +40,7 @@ The instructions follow the three address format,which means both the operands a
 
 | Name | Operation | Opcode | Instruction mode|
 |:----:|:-------:|:-------:|:-------:|
-| MOV | Rdst <- Rsrc or Imm| 00000 | 1, 2|
+| MOV | Rdst <- (Rsrc1 or Imm)| 00000 | 1, 2|
 | ADD | Rdst <- Rsrc1 + (Rsrc2 or Imm)| 00001 | 1, 2 |
 | SUB | Rdst <- Rsrc1 - (Rsrc2 or Imm)| 00010 | 1, 2 |
 | MUL | Rdst <- Rsrc1 * (Rsrc2 or Imm)| 00011 | 1, 2 |
